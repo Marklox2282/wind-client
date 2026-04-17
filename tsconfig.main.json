@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "outDir": "dist/main",
+    "noEmit": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/core/*": ["src/core/*"],
+      "@/shared/*": ["src/shared/*"]
+    }
+  },
+  "include": ["src/main/**/*", "src/core/**/*", "src/shared/**/*"],
+  "exclude": ["src/renderer/**/*", "node_modules", "dist"]
+}

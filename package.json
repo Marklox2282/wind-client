@@ -1,0 +1,109 @@
+{
+  "name": "wind-client",
+  "version": "1.0.0",
+  "description": "Modern Minecraft launcher with beautiful UI",
+  "main": "dist/main/main/main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:renderer\" \"npm run dev:main\"",
+    "dev:renderer": "vite",
+    "dev:main": "tsc -p tsconfig.main.json && electron dist/main/main/main.js --dev",
+    "build": "npm run build:renderer && npm run build:main",
+    "build:renderer": "vite build",
+    "build:main": "tsc -p tsconfig.main.json",
+    "package": "npm run build && electron-builder",
+    "package:win": "npm run build && electron-builder --win",
+    "package:linux": "npm run build && electron-builder --linux",
+    "package:mac": "npm run build && electron-builder --mac",
+    "package:dir": "npm run build && electron-builder --dir",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [
+    "minecraft",
+    "launcher",
+    "electron",
+    "react",
+    "typescript"
+  ],
+  "author": "Wind Client Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_GITHUB_USERNAME/wind-client.git"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3",
+    "vite": "^6.4.2",
+    "vite-plugin-electron": "^0.15.5"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.17.0",
+    "adm-zip": "^0.5.17",
+    "axios": "^1.6.5",
+    "electron-store": "^8.1.0",
+    "electron-updater": "^6.1.7",
+    "lucide-react": "^0.303.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "zustand": "^4.4.7"
+  },
+  "build": {
+    "appId": "com.windclient.launcher",
+    "productName": "Wind Client",
+    "copyright": "Copyright © 2026 Wind Client",
+    "artifactName": "${productName}-Setup-${version}.${ext}",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "linux": {
+      "target": [
+        { "target": "AppImage", "arch": ["x64"] },
+        { "target": "deb", "arch": ["x64"] }
+      ],
+      "category": "Game",
+      "icon": "assets/icon.png"
+    },
+    "mac": {
+      "target": [
+        { "target": "dmg", "arch": ["x64", "arm64"] }
+      ],
+      "category": "public.app-category.games",
+      "icon": "assets/icon.icns"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Wind Client",
+      "uninstallDisplayName": "Wind Client",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}
