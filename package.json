@@ -1,6 +1,6 @@
 {
   "name": "wind-client",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Modern Minecraft launcher with beautiful UI",
   "main": "dist/main/main/main.js",
   "homepage": "./",
