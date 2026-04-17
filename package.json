@@ -1,6 +1,6 @@
 {
   "name": "wind-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modern Minecraft launcher with beautiful UI",
   "main": "dist/main/main/main.js",
   "homepage": "./",
@@ -23,13 +23,14 @@
     "launcher",
     "electron",
     "react",
-    "typescript"
+    "typescript",
+    "Minecraft Client"
   ],
-  "author": "Wind Client Team",
+  "author": "marklox228",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_GITHUB_USERNAME/wind-client.git"
+    "url": "https://github.com/marklox2282/wind-client.git"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.8",
